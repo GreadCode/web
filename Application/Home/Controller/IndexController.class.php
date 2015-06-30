@@ -6,7 +6,11 @@ class IndexController extends Controller {
     	$category = M('Category');
     	
     	//导航菜单
-    	$menu = $category->where('custom_id = '.C('CUSTOM_ID').' and pid=0 and category_type= 1 and area=\'index\'')->order('no asc')->select();
+    	$map['custom_id'] = C('CUSTOM_ID');
+    	$map['pid']=0;
+    	$map['category_type'] = 1;
+    	$map['area'] = 'index';
+    	$menu = $category->where($map)->order('no asc')->select();
     	foreach ($menu as $n=>$val){
     		$menu[$n]['voo']=$category->where('pid='.$val['id'])->order('no asc')->select();
     	}
