@@ -1,2 +1,2 @@
-##A php web project.
-##Creat by Sigurd.
+A php web project.
+Creat by Sigurd.
